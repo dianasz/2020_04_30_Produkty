@@ -20,17 +20,30 @@ public class ProductController {
     }
 
     @GetMapping("/lista") //http://localhost:8080/lista
-    String getlistOfProducts(Model model){
+    String getListOfProducts(Model model){
         Set<Product> products = productRepository.findAll();
-        Double sum = 0.0;
-        for (Product product : products) {
-            sum+=product.getPrice ();
-        }
-        DecimalFormat df = new DecimalFormat("####0.00");
-        String sumText = df.format (sum);
+        String sumText = calculateSumOfPrices (products);
         model.addAttribute ("products", products);
         model.addAttribute ("sum", sumText);
         return "lista";
+    }
+
+    @GetMapping("/tabela") //http://localhost:8080/tabela
+    String getTableOfProducts(Model model){
+        Set<Product> products = productRepository.findAll();
+        String sumText = calculateSumOfPrices (products);
+        model.addAttribute ("products", products);
+        model.addAttribute ("sum", sumText);
+        return "tabela";
+    }
+
+    private String calculateSumOfPrices(Set<Product> products) {
+        Double sum = 0.0;
+        for (Product product : products) {
+            sum += product.getPrice ();
+        }
+        DecimalFormat df = new DecimalFormat ("####0.00");
+        return df.format (sum);
     }
 
     @PostMapping("addProduct")
