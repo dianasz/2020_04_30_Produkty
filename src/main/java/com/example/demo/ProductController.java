@@ -21,8 +21,9 @@ public class ProductController {
         this.productRepository = productRepository;
     }
 
-    @GetMapping("/") //http://localhost:8080
+    @GetMapping("/")
     public String home(Model model){
+        model.addAttribute ("product", new Product ());
         return "index";
     }
 
