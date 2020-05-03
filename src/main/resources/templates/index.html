@@ -14,10 +14,11 @@
 <div class="mx-3">
 
     <img src="http://tnsglobal.pl/coslychac/files/2015/09/zakupy.jpg?w=640" alt="zakupy"><br/><br/>
+
     <form method="post" th:action="@{/addProduct}" th:object="${product}">
-        Imię: <input type="text" th:field="*{name}"><br/>
-        Nazwisko: <input type="text" th:field="*{price}"><br/>
-        <button type="submit">Add</button>
+        Name: <input type="text" th:field="*{name}"><br/>
+        Price: <input type="text" th:field="*{price}"><br/>
+        <button type="submit">Add new product</button>
     </form><br/>
 
     <a href="/lista">Show list of products</a><br/>

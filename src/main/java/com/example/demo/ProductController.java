@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.text.DecimalFormat;
 import java.util.Set;
@@ -17,6 +17,11 @@ public class ProductController {
     @Autowired
     public ProductController(ProductRepository productRepository){
         this.productRepository = productRepository;
+    }
+
+    @GetMapping("/") //http://localhost:8080
+    public String home(){
+        return "index";
     }
 
     @GetMapping("/lista") //http://localhost:8080/lista
@@ -46,7 +51,7 @@ public class ProductController {
         return df.format (sum);
     }
 
-    @PostMapping("addProduct")
+    @RequestMapping("/addProduct") //http://localhost:8080/addProduct
     String addProduct(Product product){
         productRepository.addProduct (product);
         return "success";
