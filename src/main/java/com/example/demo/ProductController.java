@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.text.DecimalFormat;
 import java.util.Set;
@@ -20,7 +22,7 @@ public class ProductController {
     }
 
     @GetMapping("/") //http://localhost:8080
-    public String home(){
+    public String home(Model model){
         return "index";
     }
 
@@ -52,9 +54,13 @@ public class ProductController {
     }
 
     @RequestMapping("/addProduct") //http://localhost:8080/addProduct
-    String addProduct(Product product){
-        productRepository.addProduct (product);
-        return "success";
+    public String addProduct(Product product){
+        if (product.getName ().isEmpty ()){
+            return "err";
+        } else {
+            productRepository.addProduct (product);
+            return "success";
+        }
     }
 
 }
