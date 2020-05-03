@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Table of products</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
@@ -12,14 +12,17 @@
 <body>
 
 <div class="mx-3">
-    <form method="post" th:action="@{/addProduct}" th:object="${product}">
-        Imię: <input type="text" th:field="*{name}"><br/>
-        Nazwisko: <input type="text" th:field="*{price}"><br/>
-        <button type="submit">Add</button>
-    </form><br/>
 
-    <a href="/">Main page</a><br/>
+    <tr>
+        <td>Test Name</td>
+    </tr>
+    <tr th:each="p :${products}">
+        <td th:text="${p.name}">Name</td>
+    </tr>
 
+    <tr th:each="p : ${products}">
+        <td><p th:text="${p.name}"></p></td>
+    </tr>
 </div>
 
 </body>

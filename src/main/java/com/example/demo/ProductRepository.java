@@ -2,6 +2,7 @@ package com.example.demo;
 
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -22,4 +23,7 @@ public class ProductRepository {
         products.add (product);
     }
 
+    public Set<Product> findAll() {
+        return products;
+    }
 }
