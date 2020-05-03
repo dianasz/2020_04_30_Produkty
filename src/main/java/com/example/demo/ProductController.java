@@ -51,7 +51,7 @@ public class ProductController {
         return df.format (sum);
     }
 
-    @RequestMapping("/addProduct") //http://localhost:8080/addProduct
+    @RequestMapping("/addProduct")
     public String addProduct(Product product){
         if (product.getName ().isEmpty () || product.getPrice () == null){
             return "err";
