@@ -15,9 +15,9 @@
 
     <img src="http://tnsglobal.pl/coslychac/files/2015/09/zakupy.jpg?w=640" alt="zakupy"><br/><br/>
 
-    <form method="post" th:action="/addProduct" th:object="${product}">
-        Name: <input type="text" th:field="*{name}"><br/>
-        Price: <input type="text" th:field="*{price}"><br/>
+    <form method="post" th:action="@{/addProduct}" th:object="${product}">
+        Name: <input type="text" th:field="*{name}" placeholder="Provide a name"><br/>
+        Price: <input type="text" th:field="*{price}" placeholder="Provide a price"><br/>
         <button type="submit">Add new product</button>
     </form><br/>
 

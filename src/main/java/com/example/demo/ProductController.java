@@ -3,10 +3,7 @@ package com.example.demo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.text.DecimalFormat;
 import java.util.Set;
@@ -56,7 +53,7 @@ public class ProductController {
 
     @RequestMapping("/addProduct") //http://localhost:8080/addProduct
     public String addProduct(Product product){
-        if (product.getName ().isEmpty ()){
+        if (product.getName ().isEmpty () || product.getPrice () == null){
             return "err";
         } else {
             productRepository.addProduct (product);
