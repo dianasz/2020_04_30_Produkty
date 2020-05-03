@@ -2,6 +2,7 @@ package com.example.demo;
 
 import org.springframework.stereotype.Repository;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
@@ -25,5 +26,14 @@ public class ProductRepository {
 
     public Set<Product> findAll() {
         return new HashSet<> (products);
+    }
+
+    String calculateSumOfPrices(Set<Product> products) {
+        Double sum = 0.0;
+        for (Product product : products) {
+            sum += product.getPrice ();
+        }
+        DecimalFormat df = new DecimalFormat ("####0.00");
+        return df.format (sum);
     }
 }
