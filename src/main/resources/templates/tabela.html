@@ -8,21 +8,25 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
             crossorigin="anonymous"></script>
+
 </head>
 <body>
 
 <div class="mx-3">
+    <h1>Table of products</h1><br/>
 
-    <tr>
-        <td>Test Name</td>
-    </tr>
-    <tr th:each="p :${products}">
-        <td th:text="${p.name}">Name</td>
-    </tr>
-
-    <tr th:each="p : ${products}">
-        <td><p th:text="${p.name}"></p></td>
-    </tr>
+    <style> td { border: 1px solid black; } </style>
+    <table>
+        <tr>
+            <td>Name</td> <td>Price</td>
+        </tr>
+        <tr th:each="p :${products}">
+            <td th:text="${p.name}"></td> <td th:text="${p.price}"></td></tr>
+        </tr>
+        <tr>
+            <td><h4>Sum</h4></td> <td th:text="${sum}"></td>
+        </tr>
+    </table>
 </div>
 
 </body>

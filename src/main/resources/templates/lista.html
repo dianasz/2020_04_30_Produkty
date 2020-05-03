@@ -16,9 +16,9 @@
     <h1>List of products</h1><br/>
     <ul>
         <li th:each="p: ${products}"
-            th:text="|${p.name} ${p.price}|">Element listy</li>
+            th:text="|${p.name} ${p.price}|"></li>
     </ul><br/>
-    <h4 th:text="|Sum of prices: ${sum}|"></h4>
+    <h4 th:text="|Sum: ${sum}|"></h4>
 
 </div>
 
