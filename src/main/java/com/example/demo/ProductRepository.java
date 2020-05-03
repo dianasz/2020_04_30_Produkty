@@ -24,6 +24,6 @@ public class ProductRepository {
     }
 
     public Set<Product> findAll() {
-        return products;
+        return new HashSet<> (products);
     }
 }

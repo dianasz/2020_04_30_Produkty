@@ -13,10 +13,13 @@
 <body>
 
 <div class="mx-3">
+    <h1>List of products</h1><br/>
     <ul>
         <li th:each="p: ${products}"
             th:text="|${p.name} ${p.price}|">Element listy</li>
-    </ul>
+    </ul><br/>
+    <h4 th:text="|Sum of prices: ${sum}|"></h4>
+
 </div>
 
 </body>
